@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Manual do Vendedor DIS</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2C3D96 0%, #D52127 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 4px solid #2C3D96;
+        }
+        .logo-container {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-main {
+            font-size: 0.85em;
+            color: #333;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .logo-brands {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-unis, .logo-bonshop {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+        .logo-unis {
+            background: #2C3D96;
+            color: white;
+            font-size: 1.8em;
+        }
+        .logo-bonshop {
+            background: #D52127;
+            color: white;
+            font-size: 1.5em;
+        }
+        .logo-subtitle {
+            font-size: 0.45em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+        .header h1 {
+            color: #2C3D96;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.1em;
+            color: #D52127;
+            font-weight: 600;
+        }
+        .intro {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 3px solid #2C3D96;
+        }
+        .intro p {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .intro strong { color: #D52127; }
+        .user-info {
+            padding: 30px;
+            background: #e8f0ff;
+            border-bottom: 2px solid #2C3D96;
+        }
+        .user-info h3 {
+            color: #2C3D96;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #2C3D96;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2C3D96;
+            box-shadow: 0 0 0 3px rgba(44, 61, 150, 0.1);
+        }
+        .question-container {
+            padding: 30px;
+            display: none;
+        }
+        .question-container.active { display: block; }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .question-number {
+            background: #2C3D96;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .progress { font-size: 0.9em; color: #666; }
+        .question-text {
+            font-size: 1.25em;
+            font-weight: 600;
+            color: #2C3D96;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .options { display: flex; flex-direction: column; gap: 15px; }
+        .option {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            padding: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .option:hover {
+            border-color: #2C3D96;
+            background: #f0f4ff;
+            transform: translateX(5px);
+        }
+        .option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .option-label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 1.02em;
+            line-height: 1.5;
+        }
+        .option.selected {
+            border-color: #2C3D96;
+            background: #e8f0ff;
+        }
+        .option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+        .option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 8px;
+            display: none;
+            line-height: 1.6;
+        }
+        .explanation.show { display: block; }
+        .explanation strong { color: #856404; }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #2C3D96;
+            color: white;
+            flex: 1;
+        }
+        .btn-primary:hover {
+            background: #1f2d6b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 61, 150, 0.3);
+        }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .results {
+            padding: 40px 30px;
+            text-align: center;
+            display: none;
+        }
+        .results.show { display: block; }
+        .score-circle {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2C3D96, #D52127);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .score-number { font-size: 3.5em; font-weight: bold; }
+        .score-label { font-size: 1.2em; margin-top: 10px; }
+        .results h2 {
+            color: #2C3D96;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .results p { font-size: 1.2em; color: #666; margin-bottom: 30px; }
+        .start-screen {
+            padding: 40px 30px;
+            text-align: center;
+            display: none;
+        }
+        .start-screen h2 {
+            color: #2C3D96;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .start-screen ul {
+            text-align: left;
+            max-width: 550px;
+            margin: 30px auto;
+            line-height: 2;
+        }
+        .start-screen li { color: #555; margin-bottom: 10px; }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #dc3545;
+            display: none;
+        }
+        .error-message.show { display: block; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.5em; }
+            .question-text { font-size: 1.1em; }
+            .buttons { flex-direction: column; }
+            .logo-brands {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .logo-unis, .logo-bonshop {
+                font-size: 1.4em;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="logo-container">
+            <div class="logo-main">GRUPO DIS COMÉRCIO</div>
+            <div class="logo-brands">
+                <div class="logo-unis">
+                    UNIS
+                    <span class="logo-subtitle">AR CONDICIONADO</span>
+                </div>
+                <div class="logo-bonshop">
+                    bonshop
+                    <span class="logo-subtitle">AR CONDICIONADO</span>
+                </div>
+            </div>
+        </div>
+        <h1>QUIZ – Manual Operacional do Vendedor DIS</h1>
+        <p>UNIS & Bonshop | Teste seus conhecimentos</p>
+    </div>
+
+    <div class="intro">
+        <p>Este quiz tem <strong>20 perguntas</strong> sobre o Manual Operacional do Vendedor do Grupo DIS – UNIS & Bonshop.</p>
+        <p><strong>Objetivo:</strong> garantir que todo mundo está alinhado no mesmo padrão de trabalho.</p>
+        <p>Responda sem consultar o material. Depois você pode revisar o manual com base no que errou.</p>
+        <p><strong>Lembre: Vendedor DIS não espera a venda, cria a venda.</strong></p>
+    </div>
+
+    <div class="user-info" id="userInfo">
+        <h3>Identificação</h3>
+        <div class="error-message" id="errorMessage">
+            Por favor, preencha todos os campos antes de continuar.
+        </div>
+        <div class="form-group">
+            <label for="loja">Selecione sua Loja *</label>
+            <select id="loja" required>
+                <option value="">-- Selecione --</option>
+                <option value="202 - Bonshop">202 - Bonshop</option>
+                <option value="205 - Unis SP">205 - Unis SP</option>
+                <option value="206 - Unis Eng">206 - Unis Eng</option>
+                <option value="208 - Unis Filiais">208 - Unis Filiais</option>
+                <option value="212 - Bonshop Representantes">212 - Bonshop Representantes</option>
+                <option value="214 - Unis Representantes">214 - Unis Representantes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nome">Seu Nome Completo *</label>
+            <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+        </div>
+        <button class="btn btn-primary" onclick="validateAndStart()">INICIAR QUIZ</button>
+    </div>
+
+    <div class="start-screen" id="startScreen">
+        <h2>Instruções</h2>
+        <ul>
+            <li>✓ São 20 perguntas de múltipla escolha</li>
+            <li>✓ Cada pergunta tem 4 alternativas (A, B, C, D)</li>
+            <li>✓ Você verá a explicação após responder</li>
+            <li>✓ Não é possível voltar após confirmar a resposta</li>
+            <li>✓ Ao final, você verá sua pontuação</li>
+            <li>✓ Tempo estimado: 15-20 minutos</li>
+        </ul>
+        <button class="btn btn-primary" onclick="startQuiz()">COMEÇAR AGORA</button>
+    </div>
+
+    <div id="quizContainer"></div>
+
+    <div class="results" id="results">
+        <h2>Quiz Finalizado!</h2>
+        <div class="score-circle">
+            <div class="score-number" id="scoreNumber">0</div>
+            <div class="score-label">de 20</div>
+        </div>
+        <p id="scoreMessage"></p>
+        <p id="userSummary" style="font-size: 1em; color: #666; margin-top: 20px;"></p>
+        <button class="btn btn-primary" onclick="location.reload()">REFAZER QUIZ</button>
+    </div>
+</div>
+
+<script>
+    let userData = {
+        loja: '',
+        nome: '',
+        timestamp: '',
+        respostas: [],
+        score: 0
+    };
+
+    const questions = [
+        // BLOCO 1 – OBJETIVOS E MODELO DIS (4 perguntas)
+        {
+            question: "Um dos objetivos centrais do Manual Operacional do Vendedor DIS é:",
+            options: [
+                "Ensinar o uso técnico de cada modelo de ar-condicionado em detalhes de engenharia",
+                "Uniformizar a execução de vendas em todas as operações do Grupo DIS, garantindo consistência e qualidade no atendimento",
+                "Definir apenas as metas financeiras anuais da empresa para cada região",
+                "Substituir totalmente o treinamento prático em campo"
+            ],
+            correct: 1,
+            explanation: "O manual existe para padronizar a execução de vendas, elevar performance e criar uma cultura de excelência com processos claros e repetíveis.",
+            bloco: "Objetivos e Modelo DIS"
+        },
+        {
+            question: "Sobre a atuação do Grupo DIS, qual frase está mais alinhada com o manual?",
+            options: [
+                "Empresa que vende exclusivamente serviços de instalação para o consumidor final",
+                "Distribuidora especializada em ar-condicionado, operando através das marcas UNIS e Bonshop",
+                "Lojista de varejo focado em eletrodomésticos em geral",
+                "Fabricante de equipamentos que vende apenas para grandes construtoras"
+            ],
+            correct: 1,
+            explanation: "O grupo DIS é uma distribuidora especializada em ar-condicionado, operando com as marcas UNIS e Bonshop e oferecendo soluções completas de climatização.",
+            bloco: "Objetivos e Modelo DIS"
+        },
+        {
+            question: "Quando o manual fala em 'Padronização de Excelência' e 'Avaliação Uniforme', isso significa que:",
+            options: [
+                "Cada vendedor pode criar sua própria forma de trabalhar, desde que bata meta",
+                "Os processos comerciais são padronizados, e a avaliação usa métricas claras e iguais para todo mundo",
+                "A avaliação depende da opinião subjetiva do gestor, sem critérios definidos",
+                "Somente o faturamento mensal é considerado na análise de desempenho"
+            ],
+            correct: 1,
+            explanation: "O sistema de avaliação é baseado em KPIs claros (faturamento, margem, contatos, parceiros ativos, score comportamental), garantindo padronização e justiça.",
+            bloco: "Objetivos e Modelo DIS"
+        },
+        {
+            question: "Entre os diferenciais competitivos do Grupo DIS está:",
+            options: [
+                "Competir diretamente com o instalador na instalação, dividindo a margem do serviço",
+                "Não oferecer nenhum tipo de campanha ou incentivo ao instalador",
+                "Política clara de não competição na instalação, garantindo que o instalador mantenha 100% da margem de serviço",
+                "Cobrar frete em todas as entregas, independente do valor"
+            ],
+            correct: 2,
+            explanation: "A proteção de mercado é um diferencial: a DIS não compete na instalação, preservando 100% da margem do instalador.",
+            bloco: "Objetivos e Modelo DIS"
+        },
+
+        // BLOCO 2 – MÉTRICAS E CONTATOS (4 perguntas)
+        {
+            question: "Qual destes NÃO é um dos KPIs oficiais de avaliação do vendedor, segundo o manual?",
+            options: [
+                "Faturamento Mensal",
+                "Margem de Lucro",
+                "Parceiros Ativos",
+                "Tempo médio de deslocamento entre visitas"
+            ],
+            correct: 3,
+            explanation: "Os KPIs principais são: Faturamento Mensal, Margem de Lucro, Parceiros Ativos, Volume de Contatos e Score Comportamental. Tempo de deslocamento não é KPI oficial.",
+            bloco: "Métricas e Contatos"
+        },
+        {
+            question: "No manual, 'Volume de Contatos' significa:",
+            options: [
+                "Quantidade de e-mails de marketing enviados automaticamente",
+                "Número diário de interações comerciais intencionais (ligação, WhatsApp, e-mail, reunião) registradas no CRM",
+                "Número de acessos ao site da empresa",
+                "Quantidade de visitas presenciais, independentemente de terem objetivo comercial"
+            ],
+            correct: 1,
+            explanation: "Contato é qualquer interação com intenção comercial clara, que precisa ter objetivo definido e ser registrada no CRM.",
+            bloco: "Métricas e Contatos"
+        },
+        {
+            question: "De acordo com as metas de contato, um vendedor com faturamento abaixo de R$ 350.000 deve realizar aproximadamente:",
+            options: [
+                "5 contatos diários",
+                "10 contatos diários",
+                "20 contatos diários",
+                "30 contatos diários"
+            ],
+            correct: 2,
+            explanation: "O manual indica: vendedor < R$ 350.000 → 20 contatos/dia; R$ 351 a 750 mil → 10; acima de 751 mil → 5 contatos/dia.",
+            bloco: "Métricas e Contatos"
+        },
+        {
+            question: "O que é o 'Score Comportamental' citado como um dos KPIs?",
+            options: [
+                "Um índice baseado apenas na quantidade de vendas fechadas",
+                "Uma métrica qualitativa que inclui pontualidade, organização, atitude, colaboração e aderência aos processos",
+                "Avaliação feita exclusivamente por clientes finais",
+                "Uma nota dada pelo próprio vendedor sobre o seu desempenho"
+            ],
+            correct: 1,
+            explanation: "Score Comportamental avalia comportamento: pontualidade, organização, atitude, colaboração e seguir os processos.",
+            bloco: "Métricas e Contatos"
+        },
+
+        // BLOCO 3 – ROTINA DIÁRIA (6 perguntas)
+        {
+            question: "Na rotina diária, o bloco de 'Planejamento' tem como foco principal:",
+            options: [
+                "Resolver demandas urgentes que surgirem ao longo do dia",
+                "Revisar agenda, priorizar follow-ups urgentes e definir metas do dia",
+                "Estudar apenas catálogos técnicos dos fabricantes",
+                "Responder mensagens de WhatsApp pendentes sem critério"
+            ],
+            correct: 1,
+            explanation: "Planejamento é o momento de organizar o dia, olhar follow-ups urgentes e definir metas/prioridades.",
+            bloco: "Rotina Diária"
+        },
+        {
+            question: "Em 'Prospecção Ativa', o manual cita como canais principais:",
+            options: [
+                "Apenas visitas presenciais e feiras de negócios",
+                "Mapas (Google Maps), redes sociais, eventos, indicações e pesquisas direcionadas",
+                "Somente e-mails frios para listas compradas",
+                "Apenas telemarketing terceirizado"
+            ],
+            correct: 1,
+            explanation: "Prospecção Ativa envolve buscar novos instaladores via Google Maps, redes sociais, eventos, indicações e pesquisas direcionadas.",
+            bloco: "Rotina Diária"
+        },
+        {
+            question: "Na 'Prospecção Qualificada', o foco é:",
+            options: [
+                "Falar com qualquer contato novo, sem filtro",
+                "Insistir apenas em quem já recusou várias vezes trabalhar com a DIS",
+                "Abordar leads pré-estudados, com potencial e necessidades mapeadas, usando abordagem consultiva",
+                "Focar apenas em parceiros que já compram toda semana"
+            ],
+            correct: 2,
+            explanation: "Prospecção Qualificada usa informações prévias para abordar quem tem mais aderência e potencial, com conversa consultiva.",
+            bloco: "Rotina Diária"
+        },
+        {
+            question: "O bloco de 'Ativação/Recuperação' está diretamente ligado a qual regra importante citada no manual?",
+            options: [
+                "Regra dos 30 dias para bloqueio de carteira",
+                "Regra dos 45 dias para aumento automático de limite",
+                "Regra de limite de crédito por região",
+                "Regra dos 90 dias para inativação na carteira"
+            ],
+            correct: 3,
+            explanation: "O manual destaca a regra dos 90 dias: parceiros sem pedidos nesse período podem ser considerados inativos e alvo de recuperação/reativação.",
+            bloco: "Rotina Diária"
+        },
+        {
+            question: "No bloco 'Administrativo', uma atividade crítica descrita é:",
+            options: [
+                "Planejar a viagem de férias",
+                "Atualizar o CRM, registrar contatos e organizar documentação comercial",
+                "Fazer postagens em redes sociais pessoais",
+                "Controlar apenas notas fiscais emitidas pelos parceiros"
+            ],
+            correct: 1,
+            explanation: "O Administrativo foca em manter o CRM atualizado, registrar contatos e organizar a documentação comercial.",
+            bloco: "Rotina Diária"
+        },
+        {
+            question: "Sobre 'Treinamento Técnico', o manual orienta que o vendedor deve:",
+            options: [
+                "Deixar essa parte apenas para o time técnico da empresa",
+                "Estudar catálogos, atualizações de fabricantes e aprimorar a argumentação técnica constantemente",
+                "Aprender somente os preços, sem se aprofundar nas características dos produtos",
+                "Priorizar treinamento só quando as vendas estiverem baixas"
+            ],
+            correct: 1,
+            explanation: "Treinamento Técnico é contínuo: estudar catálogos, atualizações de fabricantes e melhorar a argumentação técnica.",
+            bloco: "Rotina Diária"
+        },
+
+        // BLOCO 4 – ABORDAGEM E CONEXÃO (4 perguntas)
+        {
+            question: "O manual destaca que os primeiros segundos da ligação com o instalador são decisivos porque:",
+            options: [
+                "O instalador geralmente está ocioso e com tempo sobrando",
+                "É o momento de falar o máximo possível sobre a empresa",
+                "O instalador pode estar em trânsito, em escada ou em visita técnica, e decide rápido se continua ou encerra o contato",
+                "As operadoras de telefonia limitam a duração inicial das chamadas"
+            ],
+            correct: 2,
+            explanation: "O contexto do instalador é crítico; ele pode estar em atividade pesada e decide em poucos segundos se continuará ouvindo.",
+            bloco: "Abordagem e Conexão"
+        },
+        {
+            question: "Uma das orientações é: 'Não inicie dizendo que é um distribuidor querendo vender produtos'. Qual é uma alternativa recomendada no manual?",
+            options: [
+                "Começar oferecendo o maior desconto possível",
+                "Perguntar: 'Você já trabalha com algum vendedor da UNIS ou Bonshop?'",
+                "Pedir imediatamente o CNPJ para cadastro",
+                "Começar falando de campanhas e prêmios"
+            ],
+            correct: 1,
+            explanation: "O manual sugere uma abordagem direta e leve, como perguntar se ele já trabalha com algum vendedor UNIS ou Bonshop.",
+            bloco: "Abordagem e Conexão"
+        },
+        {
+            question: "O manual reforça que, após fazer o instalador falar, o vendedor deve:",
+            options: [
+                "Encerrar a ligação rapidamente para gerar curiosidade",
+                "Entrar direto em uma apresentação longa sobre todas as linhas de produtos",
+                "Apresentar soluções personalizadas conectando as vantagens do Grupo DIS às necessidades que o instalador relatou",
+                "Focar apenas em marcar uma visita presencial futura, sem aprofundar a conversa"
+            ],
+            correct: 2,
+            explanation: "Escuta ativa → entender o contexto → apresentar soluções customizadas conectadas ao que o instalador disse.",
+            bloco: "Abordagem e Conexão"
+        },
+        {
+            question: "A sequência 'Capture a Imaginação → Desperte Emoção → Gere Atitude → Crie Comportamento' significa que o vendedor deve:",
+            options: [
+                "Usar apenas argumentos racionais, evitando qualquer emoção",
+                "Criar medo para obrigar o instalador a comprar",
+                "Mostrar possibilidades de crescimento, conectar emocionalmente, estimular decisão e transformar isso em hábito de parceria",
+                "Fazer piadas para deixar a conversa leve, sem foco em negócios"
+            ],
+            correct: 2,
+            explanation: "A ideia é fazer o instalador visualizar novas possibilidades, conectar emocionalmente, tomar atitude e repetir o comportamento (parceria recorrente).",
+            bloco: "Abordagem e Conexão"
+        },
+
+        // BLOCO 5 – PERFIS DE PARCEIROS E ESTRATÉGIAS (4 perguntas)
+        {
+            question: "Sobre o perfil 'Lobo Solitário', o manual descreve que este parceiro:",
+            options: [
+                "Atua apenas como vendedor e não participa da instalação",
+                "Faz tudo sozinho: orçamento, visita, compra do material e instalação",
+                "É uma grande empresa com setor comercial, obras e projetos estruturados",
+                "Não é indicado como parceiro para o Grupo DIS"
+            ],
+            correct: 1,
+            explanation: "O Lobo Solitário é aquele que cuida de todas as etapas sozinho, valorizando praticidade e suporte ágil.",
+            bloco: "Perfis de Parceiros"
+        },
+        {
+            question: "No perfil MEI, a característica marcante é:",
+            options: [
+                "Não ter equipe nenhuma, trabalhando 100% sozinho",
+                "Ter pequena equipe (3–4 ajudantes) e ainda controlar comercial, administrativo e instalação",
+                "Atuar somente como consultor, sem ir a campo",
+                "Ter um grande departamento comercial com vários vendedores internos"
+            ],
+            correct: 1,
+            explanation: "O MEI está dando os primeiros passos na estruturação, com pequena equipe, mas ainda centralizando tudo.",
+            bloco: "Perfis de Parceiros"
+        },
+        {
+            question: "Já o parceiro 'Premium' é descrito como:",
+            options: [
+                "Profissional iniciante, que está fazendo seus primeiros serviços de instalação",
+                "Empresa sem processos definidos, que decide tudo de forma improvisada",
+                "Empresa totalmente estruturada (comercial, obras, projetos, administrativo), com envolvimento reduzido do dono na operação",
+                "Instalador que trabalha apenas em pequenas obras residenciais, sem interesse em crescer"
+            ],
+            correct: 2,
+            explanation: "O Premium é o ápice da profissionalização: áreas estruturadas, processos claros e foco em parcerias estratégicas de longo prazo.",
+            bloco: "Perfis de Parceiros"
+        },
+        {
+            question: "Quando o manual fala em 'Estratégias de Fechamento por Perfil', um ponto importante é que o vendedor deve:",
+            options: [
+                "Usar a mesma abordagem para todos os perfis, para ganhar tempo",
+                "Adaptar discurso e proposta conforme o perfil: praticidade para Lobo, custo-benefício para MEI, ROI e cases para Avançado, parceria estratégica para Premium",
+                "Focar apenas em preço para qualquer tipo de parceiro",
+                "Dar prioridade total apenas aos parceiros Premium, ignorando os demais"
+            ],
+            correct: 1,
+            explanation: "A força do modelo está em adaptar a abordagem: cada perfil tem gatilhos diferentes (praticidade, gestão, ROI, parceria estratégica).",
+            bloco: "Perfis de Parceiros"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answered = false;
+    let selectedAnswer = -1;
+
+    function validateAndStart() {
+        const loja = document.getElementById('loja').value;
+        const nome = document.getElementById('nome').value.trim();
+        const errorMessage = document.getElementById('errorMessage');
+
+        if (!loja || !nome) {
+            errorMessage.classList.add('show');
+            return;
+        }
+
+        userData.loja = loja;
+        userData.nome = nome;
+        userData.timestamp = new Date().toLocaleString('pt-BR');
+
+        errorMessage.classList.remove('show');
+        document.getElementById('userInfo').style.display = 'none';
+        document.getElementById('startScreen').style.display = 'block';
+    }
+
+    function startQuiz() {
+        document.getElementById('startScreen').style.display = 'none';
+        showQuestion();
+    }
+
+    function showQuestion() {
+        const container = document.getElementById('quizContainer');
+        const q = questions[currentQuestion];
+
+        container.innerHTML = `
+            <div class="question-container active">
+                <div class="question-header">
+                    <span class="question-number">Pergunta ${currentQuestion + 1}</span>
+                    <span class="progress">${currentQuestion + 1} de ${questions.length}</span>
+                </div>
+                <div class="question-text">${q.question}</div>
+                <div class="options" id="options">
+                    ${q.options.map((opt, i) => `
+                        <div class="option" onclick="selectOption(${i})">
+                            <input type="radio" name="answer" id="opt${i}" value="${i}">
+                            <label class="option-label" for="opt${i}">${String.fromCharCode(65 + i)}. ${opt}</label>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="explanation" id="explanation">
+                    <strong>Explicação:</strong> ${q.explanation}
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-primary" id="confirmBtn" onclick="confirmAnswer()" disabled>CONFIRMAR RESPOSTA</button>
+                    ${currentQuestion < questions.length - 1 ? 
+                        '<button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display:none;">PRÓXIMA PERGUNTA</button>' :
+                        '<button class="btn btn-primary" id="finishBtn" onclick="showResults()" style="display:none;">VER RESULTADO</button>'
+                    }
+                </div>
+            </div>
+        `;
+
+        answered = false;
+        selectedAnswer = -1;
+    }
+
+    function selectOption(index) {
+        if (answered) return;
+
+        selectedAnswer = index;
+        document.querySelectorAll('.option').forEach((opt, i) => {
+            opt.classList.remove('selected');
+            if (i === index) opt.classList.add('selected');
+        });
+        document.getElementById(`opt${index}`).checked = true;
+        document.getElementById('confirmBtn').disabled = false;
+    }
+
+    function confirmAnswer() {
+        if (answered || selectedAnswer === -1) return;
+
+        answered = true;
+        const q = questions[currentQuestion];
+        const options = document.querySelectorAll('.option');
+
+        const isCorrect = selectedAnswer === q.correct;
+
+        userData.respostas.push({
+            pergunta: currentQuestion + 1,
+            bloco: q.bloco,
+            resposta: String.fromCharCode(65 + selectedAnswer),
+            correta: isCorrect
+        });
+
+        options[q.correct].classList.add('correct');
+        if (selectedAnswer !== q.correct) {
+            options[selectedAnswer].classList.add('incorrect');
+        } else {
+            score++;
+        }
+
+        document.getElementById('explanation').classList.add('show');
+        document.getElementById('confirmBtn').style.display = 'none';
+
+        if (currentQuestion < questions.length - 1) {
+            document.getElementById('nextBtn').style.display = 'block';
+        } else {
+            document.getElementById('finishBtn').style.display = 'block';
+        }
+    }
+
+    function nextQuestion() {
+        currentQuestion++;
+        selectedAnswer = -1;
+        showQuestion();
+    }
+
+    function showResults() {
+        userData.score = score;
+
+        sendToGoogleSheets(userData);
+
+        document.getElementById('quizContainer').style.display = 'none';
+        document.getElementById('results').classList.add('show');
+        document.getElementById('scoreNumber').textContent = score;
+
+        const percentage = (score / questions.length) * 100;
+        let message = '';
+
+        if (percentage === 100) {
+            message = '🎉 Perfeito! Você domina completamente o Manual do Vendedor DIS!';
+        } else if (percentage >= 85) {
+            message = '👏 Excelente! Você está muito bem preparado!';
+        } else if (percentage >= 70) {
+            message = '👍 Bom trabalho! Revise alguns pontos do manual.';
+        } else if (percentage >= 50) {
+            message = '📚 Recomendamos revisar o Manual do Vendedor DIS com atenção.';
+        } else {
+            message = '⚠️ É importante estudar o manual com mais profundidade. Converse com seu gestor.';
+        }
+
+        document.getElementById('scoreMessage').textContent = message;
+        document.getElementById('userSummary').textContent = `${userData.nome} - ${userData.loja}`;
+    }
+
+    function sendToGoogleSheets(data) {
+        // SUBSTITUA PELA SUA URL DO GOOGLE APPS SCRIPT
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwqAy1ienWoSnAQTYjFDDLqweDf-1BdatLr_37PcTIpQ-rP3F2E7aC_Uu3TnP4oKaVmaw/exec';
+
+        fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+        .then(response => response.text())
+        .then(txt => console.log('Resposta do Google:', txt))
+        .catch(err => console.error('Erro ao enviar ao Google Sheets:', err));
+    }
+</script>
+</body>
+</html>
