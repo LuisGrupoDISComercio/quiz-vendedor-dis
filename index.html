@@ -8,23 +8,24 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #2C3D96 0%, #D52127 100%);
+        background: #ffffff;
+        color: #000000;
         min-height: 100vh;
         padding: 20px;
     }
     .container {
         max-width: 850px;
         margin: 0 auto;
-        background: white;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        background: #ffffff;
+        border-radius: 0;
+        box-shadow: none;
         overflow: hidden;
     }
     .header {
-        background: linear-gradient(135deg, #2C3D96 0%, #1f2d6b 100%);
+        background: white;
         padding: 30px;
         text-align: center;
-        border-bottom: 4px solid #D52127;
+        border-bottom: 2px solid #e0e0e0;
     }
     .logo-container {
         margin-bottom: 25px;
@@ -35,7 +36,7 @@
     }
     .logo-main {
         font-size: 0.85em;
-        color: #ffffff;
+        color: #333;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -55,16 +56,15 @@
         border-radius: 8px;
         font-weight: bold;
         letter-spacing: 1.5px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .logo-unis {
-        background: #ffffff;
-        color: #2C3D96;
+        background: #2C3D96;
+        color: white;
         font-size: 1.8em;
     }
     .logo-bonshop {
-        background: #ffffff;
-        color: #D52127;
+        background: #D52127;
+        color: white;
         font-size: 1.5em;
     }
     .logo-subtitle {
@@ -75,34 +75,35 @@
         text-transform: uppercase;
     }
     .header h1 {
-        color: #ffffff;
+        color: #000000;
         font-size: 2em;
         margin-bottom: 10px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
     .header p {
         font-size: 1.1em;
-        color: #ffffff;
+        color: #000000;
         font-weight: 600;
     }
     .intro {
         padding: 30px;
-        background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
-        border-bottom: 3px solid #2C3D96;
+        background: #f8f9fa;
+        border-bottom: 1px solid #e0e0e0;
     }
     .intro p {
         line-height: 1.8;
-        color: #1a1a1a;
+        color: #000000;
         margin-bottom: 15px;
     }
-    .intro strong { color: #D52127; }
+    .intro strong {
+        color: #D52127; /* Mantém destaque vermelho */
+    }
     .user-info {
         padding: 30px;
-        background: linear-gradient(135deg, #e8f0ff 0%, #f5f8ff 100%);
-        border-bottom: 2px solid #2C3D96;
+        background: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
     }
     .user-info h3 {
-        color: #2C3D96;
+        color: #000000;
         margin-bottom: 20px;
         font-size: 1.3em;
     }
@@ -110,7 +111,7 @@
     .form-group label {
         display: block;
         font-weight: 600;
-        color: #2C3D96;
+        color: #000000;
         margin-bottom: 8px;
         font-size: 1.05em;
     }
@@ -118,23 +119,22 @@
     .form-group select {
         width: 100%;
         padding: 12px 15px;
-        border: 2px solid #2C3D96;
+        border: 2px solid #e0e0e0;
         border-radius: 8px;
         font-size: 1em;
         transition: all 0.3s ease;
         background: #ffffff;
-        color: #1a1a1a;
+        color: #000000;
     }
     .form-group input:focus,
     .form-group select:focus {
         outline: none;
-        border-color: #D52127;
-        box-shadow: 0 0 0 3px rgba(213, 33, 39, 0.1);
+        border-color: #2C3D96;
+        box-shadow: 0 0 0 3px rgba(44, 61, 150, 0.1);
     }
     .question-container {
         padding: 30px;
         display: none;
-        background: #ffffff;
     }
     .question-container.active { display: block; }
     .question-header {
@@ -146,22 +146,17 @@
         border-bottom: 2px solid #e0e0e0;
     }
     .question-number {
-        background: linear-gradient(135deg, #2C3D96, #1f2d6b);
+        background: #2C3D96;
         color: white;
         padding: 8px 16px;
         border-radius: 20px;
         font-weight: bold;
-        box-shadow: 0 3px 10px rgba(44, 61, 150, 0.3);
     }
-    .progress { 
-        font-size: 0.9em; 
-        color: #2C3D96;
-        font-weight: 600;
-    }
+    .progress { font-size: 0.9em; color: #666; }
     .question-text {
         font-size: 1.25em;
         font-weight: 600;
-        color: #1a1a1a;
+        color: #000000;
         margin-bottom: 25px;
         line-height: 1.6;
     }
@@ -179,9 +174,8 @@
     }
     .option:hover {
         border-color: #2C3D96;
-        background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+        background: #f0f4ff;
         transform: translateX(5px);
-        box-shadow: 0 3px 10px rgba(44, 61, 150, 0.15);
     }
     .option input[type="radio"] {
         width: 20px;
@@ -189,40 +183,35 @@
         cursor: pointer;
         margin-top: 2px;
         flex-shrink: 0;
-        accent-color: #2C3D96;
     }
     .option-label {
         flex: 1;
         cursor: pointer;
         font-size: 1.02em;
         line-height: 1.5;
-        color: #1a1a1a;
+        color: #000000;
     }
     .option.selected {
         border-color: #2C3D96;
-        background: linear-gradient(135deg, #e8f0ff 0%, #f5f8ff 100%);
-        box-shadow: 0 3px 10px rgba(44, 61, 150, 0.2);
+        background: #e8f0ff;
     }
     .option.correct {
         border-color: #28a745;
-        background: linear-gradient(135deg, #d4edda 0%, #e8f5e9 100%);
-        box-shadow: 0 3px 10px rgba(40, 167, 69, 0.2);
+        background: #d4edda;
     }
     .option.incorrect {
-        border-color: #D52127;
-        background: linear-gradient(135deg, #f8d7da 0%, #ffebee 100%);
-        box-shadow: 0 3px 10px rgba(213, 33, 39, 0.2);
+        border-color: #dc3545;
+        background: #f8d7da;
     }
     .explanation {
         margin-top: 20px;
         padding: 20px;
-        background: linear-gradient(135deg, #fff3cd 0%, #fffbea 100%);
+        background: #fff3cd;
         border-left: 4px solid #ffc107;
         border-radius: 8px;
         display: none;
         line-height: 1.6;
-        color: #1a1a1a;
-        box-shadow: 0 2px 8px rgba(255, 193, 7, 0.15);
+        color: #000000;
     }
     .explanation.show { display: block; }
     .explanation strong { color: #856404; }
@@ -242,22 +231,20 @@
         transition: all 0.3s ease;
     }
     .btn-primary {
-        background: linear-gradient(135deg, #2C3D96, #1f2d6b);
+        background: #2C3D96;
         color: white;
         flex: 1;
-        box-shadow: 0 4px 15px rgba(44, 61, 150, 0.3);
     }
     .btn-primary:hover {
-        background: linear-gradient(135deg, #1f2d6b, #2C3D96);
+        background: #1f2d6b;
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(44, 61, 150, 0.4);
+        box-shadow: 0 5px 15px rgba(44, 61, 150, 0.3);
     }
     .btn:disabled { opacity: 0.5; cursor: not-allowed; }
     .results {
         padding: 40px 30px;
         text-align: center;
         display: none;
-        background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
     }
     .results.show { display: block; }
     .score-circle {
@@ -276,19 +263,18 @@
     .score-number { font-size: 3.5em; font-weight: bold; }
     .score-label { font-size: 1.2em; margin-top: 10px; }
     .results h2 {
-        color: #2C3D96;
+        color: #000000;
         font-size: 2em;
         margin-bottom: 20px;
     }
-    .results p { font-size: 1.2em; color: #1a1a1a; margin-bottom: 30px; }
+    .results p { font-size: 1.2em; color: #000000; margin-bottom: 30px; }
     .start-screen {
         padding: 40px 30px;
         text-align: center;
         display: none;
-        background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
     }
     .start-screen h2 {
-        color: #2C3D96;
+        color: #000000;
         font-size: 2em;
         margin-bottom: 20px;
     }
@@ -298,16 +284,15 @@
         margin: 30px auto;
         line-height: 2;
     }
-    .start-screen li { color: #1a1a1a; margin-bottom: 10px; }
+    .start-screen li { color: #000000; margin-bottom: 10px; }
     .error-message {
-        background: linear-gradient(135deg, #f8d7da 0%, #ffebee 100%);
+        background: #f8d7da;
         color: #721c24;
         padding: 15px;
         border-radius: 8px;
         margin-bottom: 20px;
-        border-left: 4px solid #D52127;
+        border-left: 4px solid #dc3545;
         display: none;
-        box-shadow: 0 2px 8px rgba(213, 33, 39, 0.15);
     }
     .error-message.show { display: block; }
     @media (max-width: 600px) {
@@ -839,6 +824,7 @@
 </script>
 </body>
 </html>
+
 
 
 
