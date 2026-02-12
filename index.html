@@ -5,305 +5,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz - Manual do Vendedor DIS</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-       body {
-       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-       background: #ffffff;          /* fundo branco */
-       color: #000000;               /* texto padrão preto */
-       min-height: 100vh;
-       padding: 20px;
-}
-
-       .container {
-       max-width: 850px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    overflow: hidden;
-}
-        .header {
-            background: white;
-            padding: 30px;
-            text-align: center;
-            border-bottom: 4px solid #2C3D96;
-        }
-        .logo-container {
-            margin-bottom: 25px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        .logo-main {
-            font-size: 0.85em;
-            color: #333;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #ffffff;
+        color: #000000;
+        min-height: 100vh;
+        padding: 20px;
+    }
+    .container {
+        max-width: 850px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: hidden;
+    }
+    .header {
+        background: white;
+        padding: 30px;
+        text-align: center;
+        border-bottom: 2px solid #e0e0e0;
+    }
+    .logo-container {
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .logo-main {
+        font-size: 0.85em;
+        color: #333;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+    .logo-brands {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo-unis, .logo-bonshop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+    }
+    .logo-unis {
+        background: #2C3D96;
+        color: white;
+        font-size: 1.8em;
+    }
+    .logo-bonshop {
+        background: #D52127;
+        color: white;
+        font-size: 1.5em;
+    }
+    .logo-subtitle {
+        font-size: 0.45em;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin-top: 2px;
+        text-transform: uppercase;
+    }
+    .header h1 {
+        color: #000000;
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+    .header p {
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: 600;
+    }
+    .intro {
+        padding: 30px;
+        background: #f8f9fa;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .intro p {
+        line-height: 1.8;
+        color: #000000;
+        margin-bottom: 15px;
+    }
+    .intro strong {
+        color: #D52127; /* Mantém destaque vermelho */
+    }
+    .user-info {
+        padding: 30px;
+        background: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .user-info h3 {
+        color: #000000;
+        margin-bottom: 20px;
+        font-size: 1.3em;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        color: #000000;
+        margin-bottom: 8px;
+        font-size: 1.05em;
+    }
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        background: #ffffff;
+        color: #000000;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: #2C3D96;
+        box-shadow: 0 0 0 3px rgba(44, 61, 150, 0.1);
+    }
+    .question-container {
+        padding: 30px;
+        display: none;
+    }
+    .question-container.active { display: block; }
+    .question-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #e0e0e0;
+    }
+    .question-number {
+        background: #2C3D96;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+    .progress { font-size: 0.9em; color: #666; }
+    .question-text {
+        font-size: 1.25em;
+        font-weight: 600;
+        color: #000000;
+        margin-bottom: 25px;
+        line-height: 1.6;
+    }
+    .options { display: flex; flex-direction: column; gap: 15px; }
+    .option {
+        background: #f8f9fa;
+        border: 2px solid #e0e0e0;
+        padding: 18px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .option:hover {
+        border-color: #2C3D96;
+        background: #f0f4ff;
+        transform: translateX(5px);
+    }
+    .option input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin-top: 2px;
+        flex-shrink: 0;
+    }
+    .option-label {
+        flex: 1;
+        cursor: pointer;
+        font-size: 1.02em;
+        line-height: 1.5;
+        color: #000000;
+    }
+    .option.selected {
+        border-color: #2C3D96;
+        background: #e8f0ff;
+    }
+    .option.correct {
+        border-color: #28a745;
+        background: #d4edda;
+    }
+    .option.incorrect {
+        border-color: #dc3545;
+        background: #f8d7da;
+    }
+    .explanation {
+        margin-top: 20px;
+        padding: 20px;
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        border-radius: 8px;
+        display: none;
+        line-height: 1.6;
+        color: #000000;
+    }
+    .explanation.show { display: block; }
+    .explanation strong { color: #856404; }
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        gap: 15px;
+    }
+    .btn {
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .btn-primary {
+        background: #2C3D96;
+        color: white;
+        flex: 1;
+    }
+    .btn-primary:hover {
+        background: #1f2d6b;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(44, 61, 150, 0.3);
+    }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .results {
+        padding: 40px 30px;
+        text-align: center;
+        display: none;
+    }
+    .results.show { display: block; }
+    .score-circle {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2C3D96, #D52127);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 30px auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .score-number { font-size: 3.5em; font-weight: bold; }
+    .score-label { font-size: 1.2em; margin-top: 10px; }
+    .results h2 {
+        color: #000000;
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    .results p { font-size: 1.2em; color: #000000; margin-bottom: 30px; }
+    .start-screen {
+        padding: 40px 30px;
+        text-align: center;
+        display: none;
+    }
+    .start-screen h2 {
+        color: #000000;
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    .start-screen ul {
+        text-align: left;
+        max-width: 550px;
+        margin: 30px auto;
+        line-height: 2;
+    }
+    .start-screen li { color: #000000; margin-bottom: 10px; }
+    .error-message {
+        background: #f8d7da;
+        color: #721c24;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid #dc3545;
+        display: none;
+    }
+    .error-message.show { display: block; }
+    @media (max-width: 600px) {
+        .header h1 { font-size: 1.5em; }
+        .question-text { font-size: 1.1em; }
+        .buttons { flex-direction: column; }
         .logo-brands {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
         }
         .logo-unis, .logo-bonshop {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            letter-spacing: 1.5px;
+            font-size: 1.4em;
+            padding: 10px 20px;
         }
-        .logo-unis {
-            background: #2C3D96;
-            color: white;
-            font-size: 1.8em;
-        }
-        .logo-bonshop {
-            background: #D52127;
-            color: white;
-            font-size: 1.5em;
-        }
-        .logo-subtitle {
-            font-size: 0.45em;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-            text-transform: uppercase;
-        }
-       .header h1 {
-    color: #000000;
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-.header p {
-    font-size: 1.1em;
-    color: #000000;
-    font-weight: 600;
-}
-        .intro {
-            padding: 30px;
-            background: #f8f9fa;
-            border-bottom: 3px solid #2C3D96;
-        }
-        .intro p {
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .intro strong { color: #D52127; }
-        .user-info {
-            padding: 30px;
-            background: #e8f0ff;
-            border-bottom: 2px solid #2C3D96;
-        }
-        .user-info h3 {
-    color: #000000;
-    margin-bottom: 20px;
-    font-size: 1.3em;
-}
-        .form-group { margin-bottom: 20px; }
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: #2C3D96;
-            margin-bottom: 8px;
-            font-size: 1.05em;
-        }
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #2C3D96;
-            box-shadow: 0 0 0 3px rgba(44, 61, 150, 0.1);
-        }
-        .question-container {
-            padding: 30px;
-            display: none;
-        }
-        .question-container.active { display: block; }
-        .question-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e0e0e0;
-        }
-        .question-number {
-            background: #2C3D96;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-        .progress { font-size: 0.9em; color: #666; }
-        .question-text {
-            font-size: 1.25em;
-            font-weight: 600;
-            color: #2C3D96;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-        .options { display: flex; flex-direction: column; gap: 15px; }
-        .option {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            padding: 18px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        .option:hover {
-            border-color: #2C3D96;
-            background: #f0f4ff;
-            transform: translateX(5px);
-        }
-        .option input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-        .option-label {
-            flex: 1;
-            cursor: pointer;
-            font-size: 1.02em;
-            line-height: 1.5;
-        }
-        .option.selected {
-            border-color: #2C3D96;
-            background: #e8f0ff;
-        }
-        .option.correct {
-            border-color: #28a745;
-            background: #d4edda;
-        }
-        .option.incorrect {
-            border-color: #dc3545;
-            background: #f8d7da;
-        }
-        .explanation {
-            margin-top: 20px;
-            padding: 20px;
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            border-radius: 8px;
-            display: none;
-            line-height: 1.6;
-        }
-        .explanation.show { display: block; }
-        .explanation strong { color: #856404; }
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            gap: 15px;
-        }
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .btn-primary {
-            background: #2C3D96;
-            color: white;
-            flex: 1;
-        }
-        .btn-primary:hover {
-            background: #1f2d6b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(44, 61, 150, 0.3);
-        }
-        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .results {
-            padding: 40px 30px;
-            text-align: center;
-            display: none;
-        }
-        .results.show { display: block; }
-        .score-circle {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2C3D96, #D52127);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 30px auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .score-number { font-size: 3.5em; font-weight: bold; }
-        .score-label { font-size: 1.2em; margin-top: 10px; }
-        .results h2 {
-            color: #2C3D96;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .results p { font-size: 1.2em; color: #666; margin-bottom: 30px; }
-        .start-screen {
-            padding: 40px 30px;
-            text-align: center;
-            display: none;
-        }
-        .start-screen h2 {
-            color: #2C3D96;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .start-screen ul {
-            text-align: left;
-            max-width: 550px;
-            margin: 30px auto;
-            line-height: 2;
-        }
-        .start-screen li { color: #555; margin-bottom: 10px; }
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid #dc3545;
-            display: none;
-        }
-        .error-message.show { display: block; }
-        @media (max-width: 600px) {
-            .header h1 { font-size: 1.5em; }
-            .question-text { font-size: 1.1em; }
-            .buttons { flex-direction: column; }
-            .logo-brands {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .logo-unis, .logo-bonshop {
-                font-size: 1.4em;
-                padding: 10px 20px;
-            }
-        }
-    </style>
+    }
+</style>
+
 </head>
 <body>
 <div class="logo-container">
@@ -817,5 +823,6 @@
 </script>
 </body>
 </html>
+
 
 
