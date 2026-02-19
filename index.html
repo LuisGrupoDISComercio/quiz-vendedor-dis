@@ -389,281 +389,282 @@
         score: 0
     };
 
-    const questions = [
-        // BLOCO 1 – OBJETIVOS E MODELO DIS (4 perguntas)
-        {
-            question: "Um dos objetivos centrais do Manual Operacional do Vendedor DIS é:",
-            options: [
-                "Ensinar o uso técnico de cada modelo de ar-condicionado por tipo de aplicação",
-                "Uniformizar a execução de vendas do Grupo DIS, garantindo consistência e qualidade no atendimento",
-                "Definir apenas as metas individuais por perifl de vendedor",
-                "Substituir o treinamento em campo, inclsuive substituindo presença em eventos"
-            ],
-            correct: 2,
-            explanation: "O manual existe para padronizar a execução de vendas, elevar performance e criar uma cultura de excelência com processos claros e repetíveis.",
-            bloco: "Objetivos e Modelo DIS"
-        },
-        {
-            question: "Sobre a atuação do Grupo DIS, qual frase está mais alinhada com o manual?",
-            options: [
-                "Distribuidora de ar-condicionado que vende serviços de instalação para o consumidor final",
-                "Distribuidora de ar-condicionado, operando através das marcas UNIS e Bonshop",
-                "Distribuidora de ar-condicionado que trabalha com produtos de baixo preço",
-                "Distribuidora de ar-condicionado que vende apenas para grandes construtoras"
-            ],
-            correct: 2,
-            explanation: "O grupo DIS é uma distribuidora especializada em ar-condicionado, operando com as marcas UNIS e Bonshop e oferecendo soluções completas de climatização.",
-            bloco: "Objetivos e Modelo DIS"
-        },
-        {
-            question: "Quando o manual fala em 'Padronização de Excelência' e 'Avaliação Uniforme', isso significa que:",
-            options: [
-                "Cada vendedor pode criar sua própria forma de trabalhar, desde que bata meta",
-                "Os processos comerciais são padronizados, e a avaliação usa métricas claras e iguais para todo mundo",
-                "A avaliação depende da opinião do gestor e os processos são combinados com ele",
-                "O faturamento mensal é considerado o único kpi na análise de desempenho"
-            ],
-            correct: 2,
-            explanation: "O sistema de avaliação é baseado em KPIs claros (faturamento, margem, contatos, parceiros ativos, score comportamental), garantindo padronização e justiça.",
-            bloco: "Objetivos e Modelo DIS"
-        },
-        {
-            question: "Entre os diferenciais competitivos do Grupo DIS está:",
-            options: [
-                "Competir diretamente com o instalador na instalação, aumentando a margem de lucro",
-                "Não oferecer nenhum tipo de campanha ou incentivo ao instalador",
-                "Política clara de não competição na instalação, garantindo que o instalador mantenha margem de lucro no serviço",
-                "Treinamento online semanal para todos os instaladores aprenderem sobre técnicas de vendas"
-            ],
-            correct: 2,
-            explanation: "A proteção de mercado é um diferencial: a DIS não compete na instalação, preservando 100% da margem do instalador.",
-            bloco: "Objetivos e Modelo DIS"
-        },
+const questions = [
+    // BLOCO 1 – OBJETIVOS E MODELO DIS (4 perguntas)
+    {
+        question: "Um dos objetivos centrais do Manual Operacional do Vendedor DIS é:",
+        options: [
+            "Ensinar o uso técnico de cada modelo de ar-condicionado por tipo de aplicação",
+            "Uniformizar a execução de vendas do Grupo DIS, garantindo consistência e qualidade no atendimento",
+            "Definir apenas as metas individuais por perfil de vendedor",
+            "Substituir o treinamento em campo, inclusive substituindo presença em eventos"
+        ],
+        correct: 1,
+        explanation: "O manual existe para padronizar a execução de vendas, elevar performance e criar uma cultura de excelência com processos claros e repetíveis.",
+        bloco: "Objetivos e Modelo DIS"
+    },
+    {
+        question: "Sobre a atuação do Grupo DIS, qual frase está mais alinhada com o manual?",
+        options: [
+            "Distribuidora de ar-condicionado que vende serviços de instalação para o consumidor final",
+            "Distribuidora de ar-condicionado, operando através das marcas UNIS e Bonshop",
+            "Distribuidora de ar-condicionado que trabalha com produtos de baixo preço",
+            "Distribuidora de ar-condicionado que vende apenas para grandes construtoras"
+        ],
+        correct: 1,
+        explanation: "O grupo DIS é uma distribuidora especializada em ar-condicionado, operando com as marcas UNIS e Bonshop e oferecendo soluções completas de climatização.",
+        bloco: "Objetivos e Modelo DIS"
+    },
+    {
+        question: "Quando o manual fala em 'Padronização de Excelência' e 'Avaliação Uniforme', isso significa que:",
+        options: [
+            "Cada vendedor pode criar sua própria forma de trabalhar, desde que bata meta",
+            "Os processos comerciais são padronizados, e a avaliação usa métricas claras e iguais para todo mundo",
+            "A avaliação depende da opinião do gestor e os processos são combinados com ele",
+            "O faturamento mensal é considerado o único KPI na análise de desempenho"
+        ],
+        correct: 1,
+        explanation: "O sistema de avaliação é baseado em KPIs claros (faturamento, margem, contatos, parceiros ativos, score comportamental), garantindo padronização e justiça.",
+        bloco: "Objetivos e Modelo DIS"
+    },
+    {
+        question: "Entre os diferenciais competitivos do Grupo DIS está:",
+        options: [
+            "Competir diretamente com o instalador na instalação, aumentando a margem de lucro",
+            "Não oferecer nenhum tipo de campanha ou incentivo ao instalador",
+            "Política clara de não competição na instalação, garantindo que o instalador mantenha margem de lucro no serviço",
+            "Treinamento online semanal para todos os instaladores aprenderem sobre técnicas de vendas"
+        ],
+        correct: 2,
+        explanation: "A proteção de mercado é um diferencial: a DIS não compete na instalação, preservando 100% da margem do instalador.",
+        bloco: "Objetivos e Modelo DIS"
+    },
 
-        // BLOCO 2 – MÉTRICAS E CONTATOS (4 perguntas)
-        {
-            question: "Qual destes NÃO é um dos KPIs oficiais de avaliação do vendedor, segundo o manual?",
-            options: [
-                "Faturamento Mensal",
-                "Margem de Lucro",
-                "Parceiros Ativos",
-                "Quantidade de parceiros prospectados"
-            ],
-            correct: 4,
-            explanation: "Os KPIs principais são: Faturamento Mensal, Margem de Lucro, Parceiros Ativos, Volume de Contatos e Score Comportamental. Tempo de deslocamento não é KPI oficial.",
-            bloco: "Métricas e Contatos"
-        },
-        {
-            question: "No manual, 'Volume de Contatos' significa:",
-            options: [
-                "Quantidade de e-mails de marketing enviados automaticamente",
-                "Número diário de interações comerciais intencionais (ligação, WhatsApp, e-mail, reunião) registradas no CRM",
-                "Número de acessos ao Instagram da empresa",
-                "Quantidade de visitas presenciais"
-            ],
-            correct: 2,
-            explanation: "Contato é qualquer interação com intenção comercial clara, que precisa ter objetivo definido e ser registrada no CRM.",
-            bloco: "Métricas e Contatos"
-        },
-        {
-            question: "De acordo com as metas de contato, um vendedor com faturamento abaixo de R$ 350.000 deve realizar aproximadamente:",
-            options: [
-                "5 contatos diários",
-                "10 contatos diários",
-                "20 contatos diários",
-                "30 contatos diários"
-            ],
-            correct: 2,
-            explanation: "O manual indica: vendedor < R$ 350.000 → 20 contatos/dia; R$ 351 a 750 mil → 10; acima de 751 mil → 5 contatos/dia.",
-            bloco: "Métricas e Contatos"
-        },
-        {
-            question: "O que é o 'Score Comportamental' citado como um dos KPIs?",
-            options: [
-                "Uma métrica qualitativa que inclui pontualidade, organização, atitude, colaboração e aderência aos processos",
-                "Um índice baseado na quantidade de vendas fechadas x orçamentos realizados",
-                "Avaliação feita por clientes finais",
-                "Uma avaliação feita pelo próprio vendedor sobre o seu desempenho"
-            ],
-            correct: 1,
-            explanation: "Score Comportamental avalia comportamento: pontualidade, organização, atitude, colaboração e seguir os processos.",
-            bloco: "Métricas e Contatos"
-        },
+    // BLOCO 2 – MÉTRICAS E CONTATOS (4 perguntas)
+    {
+        question: "Qual destes NÃO é um dos KPIs oficiais de avaliação do vendedor, segundo o manual?",
+        options: [
+            "Faturamento Mensal",
+            "Margem de Lucro",
+            "Parceiros Ativos",
+            "Quantidade de parceiros prospectados"
+        ],
+        correct: 3,
+        explanation: "Os KPIs principais são: Faturamento Mensal, Margem de Lucro, Parceiros Ativos, Volume de Contatos e Score Comportamental. Quantidade de parceiros prospectados não é KPI oficial.",
+        bloco: "Métricas e Contatos"
+    },
+    {
+        question: "No manual, 'Volume de Contatos' significa:",
+        options: [
+            "Quantidade de e-mails de marketing enviados automaticamente",
+            "Número diário de interações comerciais intencionais (ligação, WhatsApp, e-mail, reunião) registradas no CRM",
+            "Número de acessos ao Instagram da empresa",
+            "Quantidade de visitas presenciais"
+        ],
+        correct: 1,
+        explanation: "Contato é qualquer interação com intenção comercial clara, que precisa ter objetivo definido e ser registrada no CRM.",
+        bloco: "Métricas e Contatos"
+    },
+    {
+        question: "De acordo com as metas de contato, um vendedor com faturamento abaixo de R$ 350.000 deve realizar aproximadamente:",
+        options: [
+            "5 contatos diários",
+            "10 contatos diários",
+            "20 contatos diários",
+            "30 contatos diários"
+        ],
+        correct: 2,
+        explanation: "O manual indica: vendedor < R$ 350.000 → 20 contatos/dia; R$ 351 a 750 mil → 10; acima de 751 mil → 5 contatos/dia.",
+        bloco: "Métricas e Contatos"
+    },
+    {
+        question: "O que é o 'Score Comportamental' citado como um dos KPIs?",
+        options: [
+            "Uma métrica qualitativa que inclui pontualidade, organização, atitude, colaboração e aderência aos processos",
+            "Um índice baseado na quantidade de vendas fechadas x orçamentos realizados",
+            "Avaliação feita por clientes finais",
+            "Uma avaliação feita pelo próprio vendedor sobre o seu desempenho"
+        ],
+        correct: 0,
+        explanation: "Score Comportamental avalia comportamento: pontualidade, organização, atitude, colaboração e seguir os processos.",
+        bloco: "Métricas e Contatos"
+    },
 
-        // BLOCO 3 – ROTINA DIÁRIA (6 perguntas)
-        {
-            question: "Na rotina diária, o bloco de 'Planejamento' tem como foco principal:",
-            options: [
-                "Resolver demandas urgentes que surgirem ao longo do dia",
-                "Estudar catálogos técnicos dos fabricantes para aumentar o conhecimento",
-                "Responder mensagens de WhatsApp por ordem de entrada na caixa de mensagens"
-                "Revisar agenda, priorizar follow-ups urgentes e definir metas do dia",
-            ],
-            correct: 4,
-            explanation: "Planejamento é o momento de organizar o dia, olhar follow-ups urgentes e definir metas/prioridades.",
-            bloco: "Rotina Diária"
-        },
-        {
-            question: "Em 'Prospecção Ativa', o manual cita como canais principais:",
-            options: [
-                "Apenas visitas presenciais e feiras de negócios",
-                "Mapas (Google Maps), redes sociais, eventos, indicações e pesquisas direcionadas",
-                "E-mails para listas compradas",
-                "Telemarketing terceirizado"
-            ],
-            correct: 2,
-            explanation: "Prospecção Ativa envolve buscar novos instaladores via Google Maps, redes sociais, eventos, indicações e pesquisas direcionadas.",
-            bloco: "Rotina Diária"
-        },
-        {
-            question: "Na 'Prospecção Qualificada', o foco é:",
-            options: [
-                "Falar com contato novo, gerando quantidade alta de leads",
-                "Insistir  em quem já recusou várias vezes trabalhar com a DIS",
-                "Abordar leads pré-estudados, com potencial e necessidades mapeadas, usando abordagem consultiva",
-                "Focar em parceiros que já compram toda semana para não perder vendas da carteira"
-            ],
-            correct: 3,
-            explanation: "Prospecção Qualificada usa informações prévias para abordar quem tem mais aderência e potencial, com conversa consultiva.",
-            bloco: "Rotina Diária"
-        },
-        {
-            question: "O bloco de 'Ativação/Recuperação' está diretamente ligado a qual regra importante citada no manual?",
-            options: [
-                "Regra dos 30 dias para bloqueio de carteira",
-                "Regra dos 45 dias para inativação na carteira",
-                "Regra dos 60 dias para inativação na carteira",
-                "Regra dos 90 dias para inativação na carteira"
-            ],
-            correct: 4,
-            explanation: "O manual destaca a regra dos 90 dias: parceiros sem pedidos nesse período podem ser considerados inativos e alvo de recuperação/reativação.",
-            bloco: "Rotina Diária"
-        },
-        {
-            question: "No bloco 'Administrativo', uma atividade crítica descrita é:",
-            options: [
-                "Planejar o atendimento por ordem de cadastramento na carteira",
-                "Atualizar o bloco de relacionamento, registrar contatos e organizar documentação comercial",
-                "Fazer postagens em redes sociais pessoais",
-                "Controlar apenas notas fiscais emitidas pelo Centro de Distribuição"
-            ],
-            correct: 2,
-            explanation: "O Administrativo foca em manter o bloco de relacionamento atualizado, registrar contatos e organizar a documentação comercial.",
-            bloco: "Rotina Diária"
-        },
-        {
-            question: "Sobre 'Treinamento Técnico', o manual orienta que o vendedor deve:",
-            options: [
-                "Focar em fluxograma de VRF que é o valor mais alto",
-                "Aprender os preços, fazer a venda e fazer a troca de produtos se a venda foi errada",
-                "Priorizar treinamento quando as vendas estiverem baixas"
-                "Estudar catálogos, atualizações de fabricantes e aprimorar a argumentação técnica constantemente",
-            ],
-            correct: 4,
-            explanation: "Treinamento Técnico é contínuo: estudar catálogos, atualizações de fabricantes e melhorar a argumentação técnica.",
-            bloco: "Rotina Diária"
-        },
+    // BLOCO 3 – ROTINA DIÁRIA (6 perguntas)
+    {
+        question: "Na rotina diária, o bloco de 'Planejamento' tem como foco principal:",
+        options: [
+            "Resolver demandas urgentes que surgirem ao longo do dia",
+            "Estudar catálogos técnicos dos fabricantes para aumentar o conhecimento",
+            "Responder mensagens de WhatsApp por ordem de entrada na caixa de mensagens",
+            "Revisar agenda, priorizar follow-ups urgentes e definir metas do dia"
+        ],
+        correct: 3,
+        explanation: "Planejamento é o momento de organizar o dia, olhar follow-ups urgentes e definir metas/prioridades.",
+        bloco: "Rotina Diária"
+    },
+    {
+        question: "Em 'Prospecção Ativa', o manual cita como canais principais:",
+        options: [
+            "Apenas visitas presenciais e feiras de negócios",
+            "Mapas (Google Maps), redes sociais, eventos, indicações e pesquisas direcionadas",
+            "E-mails para listas compradas",
+            "Telemarketing terceirizado"
+        ],
+        correct: 1,
+        explanation: "Prospecção Ativa envolve buscar novos instaladores via Google Maps, redes sociais, eventos, indicações e pesquisas direcionadas.",
+        bloco: "Rotina Diária"
+    },
+    {
+        question: "Na 'Prospecção Qualificada', o foco é:",
+        options: [
+            "Falar com contato novo, gerando quantidade alta de leads",
+            "Insistir em quem já recusou várias vezes trabalhar com a DIS",
+            "Abordar leads pré-estudados, com potencial e necessidades mapeadas, usando abordagem consultiva",
+            "Focar em parceiros que já compram toda semana para não perder vendas da carteira"
+        ],
+        correct: 2,
+        explanation: "Prospecção Qualificada usa informações prévias para abordar quem tem mais aderência e potencial, com conversa consultiva.",
+        bloco: "Rotina Diária"
+    },
+    {
+        question: "O bloco de 'Ativação/Recuperação' está diretamente ligado a qual regra importante citada no manual?",
+        options: [
+            "Regra dos 30 dias para bloqueio de carteira",
+            "Regra dos 45 dias para inativação na carteira",
+            "Regra dos 60 dias para inativação na carteira",
+            "Regra dos 90 dias para inativação na carteira"
+        ],
+        correct: 3,
+        explanation: "O manual destaca a regra dos 90 dias: parceiros sem pedidos nesse período podem ser considerados inativos e alvo de recuperação/reativação.",
+        bloco: "Rotina Diária"
+    },
+    {
+        question: "No bloco 'Administrativo', uma atividade crítica descrita é:",
+        options: [
+            "Planejar o atendimento por ordem de cadastramento na carteira",
+            "Atualizar o CRM, registrar contatos e organizar documentação comercial",
+            "Fazer postagens em redes sociais pessoais",
+            "Controlar apenas notas fiscais emitidas pelo Centro de Distribuição"
+        ],
+        correct: 1,
+        explanation: "O Administrativo foca em manter o CRM atualizado, registrar contatos e organizar a documentação comercial.",
+        bloco: "Rotina Diária"
+    },
+    {
+        question: "Sobre 'Treinamento Técnico', o manual orienta que o vendedor deve:",
+        options: [
+            "Focar em fluxograma de VRF que é o valor mais alto",
+            "Aprender os preços, fazer a venda e fazer a troca de produtos se a venda foi errada",
+            "Priorizar treinamento quando as vendas estiverem baixas",
+            "Estudar catálogos, atualizações de fabricantes e aprimorar a argumentação técnica constantemente"
+        ],
+        correct: 3,
+        explanation: "Treinamento Técnico é contínuo: estudar catálogos, atualizações de fabricantes e melhorar a argumentação técnica.",
+        bloco: "Rotina Diária"
+    },
 
-        // BLOCO 4 – ABORDAGEM E CONEXÃO (4 perguntas)
-        {
-            question: "O manual destaca que os primeiros segundos da ligação com o instalador são decisivos porque:",
-            options: [
-                "O instalador geralmente nos dá 30 segundos de atenção",
-                "É o momento de falar o máximo possível sobre a empresa",
-                "O instalador pode estar em trânsito, em escada ou em visita técnica, e decide rápido se continua ou encerra o contato",
-                "As operadoras de telefonia limitam a duração inicial das chamadas"
-            ],
-            correct: 3,
-            explanation: "O contexto do instalador é crítico; ele pode estar em atividade pesada e decide em poucos segundos se continuará ouvindo.",
-            bloco: "Abordagem e Conexão"
-        },
-        {
-            question: "Uma das orientações é: 'Não inicie dizendo que é um distribuidor querendo vender produtos'. Qual é uma alternativa recomendada no manual?",
-            options: [
-                "Começar oferecendo o maior desconto possível",
-                "Perguntar: 'Você já trabalha com algum vendedor da UNIS ou Bonshop?'",
-                "Pedir imediatamente o CNPJ para cadastro",
-                "Começar perguntando se trabalha com ar condicionado"
-            ],
-            correct: 4,
-            explanation: "O manual sugere uma abordagem direta e leve, como perguntar se ele já trabalha com algum vendedor UNIS ou Bonshop.",
-            bloco: "Abordagem e Conexão"
-        },
-        {
-            question: "O manual reforça que, após fazer o instalador falar, o vendedor deve:",
-            options: [
-                "Encerrar a ligação rapidamente para gerar curiosidade",
-                "Entrar direto em uma apresentação longa sobre todas as linhas de produtos",
-                "Apresentar soluções personalizadas conectando as vantagens do Grupo DIS às necessidades que o instalador relatou",
-                "Focar apenas em marcar uma visita presencial, sem aprofundar a conversa"
-            ],
-            correct: 3,
-            explanation: "Escuta ativa → entender o contexto → apresentar soluções customizadas conectadas ao que o instalador disse.",
-            bloco: "Abordagem e Conexão"
-        },
-        {
-            question: "A sequência 'Capture a Imaginação → Desperte Emoção → Gere Atitude → Crie Comportamento' significa que o vendedor deve:",
-            options: [
-                "Mostrar possibilidades de crescimento, conectar emocionalmente, estimular decisão e transformar isso em hábito de parceria",
-                "Criar medo para obrigar o instalador a comprar",
-                "Fazer piadas para deixar a conversa leve, sem foco em negócios para criar uma conexão"
-                "Usar argumentos racionais, evitando qualquer emoção",
-            ],
-            correct: 1,
-            explanation: "A ideia é fazer o instalador visualizar novas possibilidades, conectar emocionalmente, tomar atitude e repetir o comportamento (parceria recorrente).",
-            bloco: "Abordagem e Conexão"
-        },
+    // BLOCO 4 – ABORDAGEM E CONEXÃO (4 perguntas)
+    {
+        question: "O manual destaca que os primeiros segundos da ligação com o instalador são decisivos porque:",
+        options: [
+            "O instalador geralmente nos dá 30 segundos de atenção",
+            "É o momento de falar o máximo possível sobre a empresa",
+            "O instalador pode estar em trânsito, em escada ou em visita técnica, e decide rápido se continua ou encerra o contato",
+            "As operadoras de telefonia limitam a duração inicial das chamadas"
+        ],
+        correct: 2,
+        explanation: "O contexto do instalador é crítico; ele pode estar em atividade pesada e decide em poucos segundos se continuará ouvindo.",
+        bloco: "Abordagem e Conexão"
+    },
+    {
+        question: "Uma das orientações é: 'Não inicie dizendo que é um distribuidor querendo vender produtos'. Qual é uma alternativa recomendada no manual?",
+        options: [
+            "Começar oferecendo o maior desconto possível",
+            "Pedir imediatamente o CNPJ para cadastro",
+            "Começar perguntando se trabalha com ar condicionado",
+            "Perguntar: 'Você já trabalha com algum vendedor da UNIS ou Bonshop?'"
+        ],
+        correct: 3,
+        explanation: "O manual sugere uma abordagem direta e leve, como perguntar se ele já trabalha com algum vendedor UNIS ou Bonshop.",
+        bloco: "Abordagem e Conexão"
+    },
+    {
+        question: "O manual reforça que, após fazer o instalador falar, o vendedor deve:",
+        options: [
+            "Encerrar a ligação rapidamente para gerar curiosidade",
+            "Entrar direto em uma apresentação longa sobre todas as linhas de produtos",
+            "Apresentar soluções personalizadas conectando as vantagens do Grupo DIS às necessidades que o instalador relatou",
+            "Focar apenas em marcar uma visita presencial, sem aprofundar a conversa"
+        ],
+        correct: 2,
+        explanation: "Escuta ativa → entender o contexto → apresentar soluções customizadas conectadas ao que o instalador disse.",
+        bloco: "Abordagem e Conexão"
+    },
+    {
+        question: "A sequência 'Capture a Imaginação → Desperte Emoção → Gere Atitude → Crie Comportamento' significa que o vendedor deve:",
+        options: [
+            "Mostrar possibilidades de crescimento, conectar emocionalmente, estimular decisão e transformar isso em hábito de parceria",
+            "Criar medo para obrigar o instalador a comprar",
+            "Fazer piadas para deixar a conversa leve, sem foco em negócios para criar uma conexão",
+            "Usar argumentos racionais, evitando qualquer emoção"
+        ],
+        correct: 0,
+        explanation: "A ideia é fazer o instalador visualizar novas possibilidades, conectar emocionalmente, tomar atitude e repetir o comportamento (parceria recorrente).",
+        bloco: "Abordagem e Conexão"
+    },
 
-        // BLOCO 5 – PERFIS DE PARCEIROS E ESTRATÉGIAS (4 perguntas)
-        {
-            question: "Sobre o perfil 'Lobo Solitário', o manual descreve que este parceiro:",
-            options: [
-                "Atua apenas como vendedor e não participa da instalação",
-                "Faz tudo sozinho: orçamento, visita, compra do material e instalação",
-                "É uma grande empresa com setor comercial, obras e projetos estruturados",
-                "Não é indicado como parceiro para o Grupo DIS pois é muito pequeno"
-            ],
-            correct: 2,
-            explanation: "O Lobo Solitário é aquele que cuida de todas as etapas sozinho, valorizando praticidade e suporte ágil.",
-            bloco: "Perfis de Parceiros"
-        },
-        {
-            question: "No perfil MEI, a característica marcante é:",
-            options: [
-                "Não ter equipe nenhuma, trabalhando 100% sozinho",
-                "Ter pequena equipe (3–4 ajudantes) e ainda controlar comercial, administrativo e instalação",
-                "Atuar como consultor, sem ir a campo pois tem a equipe lá",
-                "Ter um grande departamento comercial com vários vendedores internos"
-            ],
-            correct: 2,
-            explanation: "O MEI está dando os primeiros passos na estruturação, com pequena equipe, mas ainda centralizando tudo.",
-            bloco: "Perfis de Parceiros"
-        },
-        {
-            question: "Já o parceiro 'Premium' é descrito como:",
-            options: [
-                "Profissional iniciante, que está fazendo seus primeiros serviços de instalação",
-                "Empresa sem processos definidos, que decide tudo de forma improvisada",
-                "Empresa totalmente estruturada (comercial, obras, projetos, administrativo), com envolvimento reduzido do dono na operação",
-                "Instalador que trabalha em pequenas obras residenciais, sem interesse em crescer"
-            ],
-            correct: 3,
-            explanation: "O Premium é o ápice da profissionalização: áreas estruturadas, processos claros e foco em parcerias estratégicas de longo prazo.",
-            bloco: "Perfis de Parceiros"
-        },
-        {
-            question: "Quando o manual fala em 'Estratégias de Fechamento por Perfil', um ponto importante é que o vendedor deve:",
-            options: [
-                "Adaptar discurso e proposta conforme o perfil: praticidade para Lobo, custo-benefício para MEI, ROI e cases para Avançado, parceria estratégica para Premium",
-                "Usar a mesma abordagem para todos os perfis, para ganhar tempo",
-                "Focar em preço para qualquer tipo de parceiro pois é o que importa no mercado",
-                "Dar prioridade total apenas aos parceiros Premium, deixando na carteira os demais para complementarem os números"
-            ],
-            correct: 1,
-            explanation: "A força do modelo está em adaptar a abordagem: cada perfil tem gatilhos diferentes (praticidade, gestão, ROI, parceria estratégica).",
-            bloco: "Perfis de Parceiros"
-        }
-    ];
+    // BLOCO 5 – PERFIS DE PARCEIROS E ESTRATÉGIAS (4 perguntas)
+    {
+        question: "Sobre o perfil 'Lobo Solitário', o manual descreve que este parceiro:",
+        options: [
+            "Atua apenas como vendedor e não participa da instalação",
+            "Faz tudo sozinho: orçamento, visita, compra do material e instalação",
+            "É uma grande empresa com setor comercial, obras e projetos estruturados",
+            "Não é indicado como parceiro para o Grupo DIS pois é muito pequeno"
+        ],
+        correct: 1,
+        explanation: "O Lobo Solitário é aquele que cuida de todas as etapas sozinho, valorizando praticidade e suporte ágil.",
+        bloco: "Perfis de Parceiros"
+    },
+    {
+        question: "No perfil MEI, a característica marcante é:",
+        options: [
+            "Não ter equipe nenhuma, trabalhando 100% sozinho",
+            "Ter pequena equipe (3–4 ajudantes) e ainda controlar comercial, administrativo e instalação",
+            "Atuar como consultor, sem ir a campo pois tem a equipe lá",
+            "Ter um grande departamento comercial com vários vendedores internos"
+        ],
+        correct: 1,
+        explanation: "O MEI está dando os primeiros passos na estruturação, com pequena equipe, mas ainda centralizando tudo.",
+        bloco: "Perfis de Parceiros"
+    },
+    {
+        question: "Já o parceiro 'Premium' é descrito como:",
+        options: [
+            "Profissional iniciante, que está fazendo seus primeiros serviços de instalação",
+            "Empresa sem processos definidos, que decide tudo de forma improvisada",
+            "Empresa totalmente estruturada (comercial, obras, projetos, administrativo), com envolvimento reduzido do dono na operação",
+            "Instalador que trabalha em pequenas obras residenciais, sem interesse em crescer"
+        ],
+        correct: 2,
+        explanation: "O Premium é o ápice da profissionalização: áreas estruturadas, processos claros e foco em parcerias estratégicas de longo prazo.",
+        bloco: "Perfis de Parceiros"
+    },
+    {
+        question: "Quando o manual fala em 'Estratégias de Fechamento por Perfil', um ponto importante é que o vendedor deve:",
+        options: [
+            "Adaptar discurso e proposta conforme o perfil: praticidade para Lobo, custo-benefício para MEI, ROI e cases para Avançado, parceria estratégica para Premium",
+            "Usar a mesma abordagem para todos os perfis, para ganhar tempo",
+            "Focar em preço para qualquer tipo de parceiro pois é o que importa no mercado",
+            "Dar prioridade total apenas aos parceiros Premium, deixando na carteira os demais para complementarem os números"
+        ],
+        correct: 0,
+        explanation: "A força do modelo está em adaptar a abordagem: cada perfil tem gatilhos diferentes (praticidade, gestão, ROI, parceria estratégica).",
+        bloco: "Perfis de Parceiros"
+    }
+];
+
 
     let currentQuestion = 0;
     let score = 0;
@@ -824,6 +825,7 @@
 </script>
 </body>
 </html>
+
 
 
 
